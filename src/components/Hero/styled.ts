@@ -7,8 +7,8 @@ export const HeroSection = styled(Box)(({ theme }) => ({
   alignItems: "center",
   justifyContent: "center",
   background: `linear-gradient(135deg,
-    ${theme.palette.background.default} 0%,
-    ${theme.palette.grey[50]} 100%)`,
+    rgb(18,20,25) 0%,
+    rgb(18,25,35) 100%)`,
   position: "relative",
   overflow: "hidden",
   "&::before": {
@@ -18,8 +18,8 @@ export const HeroSection = styled(Box)(({ theme }) => ({
     left: 0,
     right: 0,
     bottom: 0,
-    background: `radial-gradient(circle at 20% 80%, ${theme.palette.primary.main}15 0%, transparent 50%),
-                 radial-gradient(circle at 80% 20%, ${theme.palette.secondary.main}15 0%, transparent 50%)`,
+    background: `radial-gradient(circle at 20% 80%, ${theme.palette.info.dark}10 0%, transparent 50%),
+                 radial-gradient(circle at 80% 20%, ${theme.palette.primary.main}10 0%, transparent 50%)`,
     zIndex: 0,
   },
 }));
@@ -35,10 +35,11 @@ export const HeroTitle = styled(Typography)(({ theme }) => ({
   fontWeight: 800,
   lineHeight: 1.1,
   marginBottom: theme.spacing(3),
-  background: `linear-gradient(135deg, ${theme.palette.text.primary} 0%, ${theme.palette.primary.main} 100%)`,
+  background: `linear-gradient(135deg, gold 0%, orange 100%)`,
   backgroundClip: "text",
   WebkitBackgroundClip: "text",
   WebkitTextFillColor: "transparent",
+  fontSize: "clamp(10rem, 10vw, 3rem)",
   [theme.breakpoints.down("md")]: {
     fontSize: "clamp(2rem, 6vw, 3rem)",
   },
@@ -47,17 +48,16 @@ export const HeroTitle = styled(Typography)(({ theme }) => ({
 export const HeroSubtitle = styled(Typography)(({ theme }) => ({
   fontWeight: 300,
   fontSize: "clamp(1.2rem, 3vw, 1.8rem)",
-  color: theme.palette.text.secondary,
+  color: theme.palette.common.white,
   marginBottom: theme.spacing(2),
   maxWidth: "600px",
-  margin: "0 auto",
-  marginBottom: theme.spacing(3),
+  margin: `0 auto ${theme.spacing(3)}`,
 }));
 
 export const HeroDescription = styled(Typography)(({ theme }) => ({
   fontWeight: 400,
   fontSize: "clamp(1rem, 2vw, 1.2rem)",
-  color: theme.palette.text.secondary,
+  color: theme.palette.common.white,
   maxWidth: "700px",
   margin: "0 auto",
   marginBottom: theme.spacing(5),

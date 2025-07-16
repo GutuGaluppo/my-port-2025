@@ -44,7 +44,7 @@ export const MusicDescription = styled(Typography)(({ theme }) => ({
   marginBottom: theme.spacing(6),
   maxWidth: "600px",
   margin: "0 auto",
-  marginBottom: theme.spacing(6),
+  // marginBottom: theme.spacing(6),
   lineHeight: 1.6,
   position: "relative",
   zIndex: 1,

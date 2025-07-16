@@ -1,109 +1,74 @@
-import { Close as CloseIcon, Menu as MenuIcon } from "@mui/icons-material";
-import {
-  Drawer,
-  IconButton,
-  List,
-  ListItem,
-  ListItemText,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
-import { useState } from "react";
+import { Menu as MenuIcon } from "@mui/icons-material";
+import { IconButton, useMediaQuery, useTheme } from "@mui/material";
+import { useCallback, useState } from "react";
 import { navbarItems } from "../../data/navbarData";
+import MobileNavDrawer from ".//MobileNavDrawer";
 import {
+  DesktopNavContainer,
   Logo,
-  MobileDrawer,
   NavButton,
   StyledAppBar,
   StyledToolbar,
 } from "./styled";
 
-const Header = () => {
+const Navbar = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const handleDrawerToggle = () => {
+  const handleDrawerToggle = useCallback(() => {
     setMobileOpen(!mobileOpen);
-  };
+  }, [mobileOpen]);
 
-  const handleMenuClick = (href) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+  const handleMenuClick = useCallback((href: string) => {
+    try {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      } else {
+        console.warn(`Element with selector "${href}" not found`);
+      }
+    } catch (error) {
+      console.error("Error scrolling to element:", error);
     }
-    setMobileOpen(false);
-  };
-
-  const drawer = (
-    <MobileDrawer>
-      <div
-        style={{ display: "flex", justifyContent: "flex-end", padding: "16px" }}
-      >
-        <IconButton onClick={handleDrawerToggle}>
-          <CloseIcon />
-        </IconButton>
-      </div>
-      <List>
-        {navbarItems.map((item) => (
-          <ListItem key={item.label} onClick={() => handleMenuClick(item.href)}>
-            <ListItemText primary={item.label} />
-          </ListItem>
-        ))}
-      </List>
-    </MobileDrawer>
-  );
+  }, []);
 
   return (
     <>
-      <StyledAppBar position="fixed">
+      <StyledAppBar>
         <StyledToolbar>
-          <Logo variant="h6">Galuppo</Logo>
+          <Logo variant="h6">G</Logo>
 
           {isMobile ? (
             <IconButton
-              color="inherit"
-              aria-label="open drawer"
+              aria-label="open navigation menu"
               edge="start"
               onClick={handleDrawerToggle}
             >
-              <MenuIcon />
+              <MenuIcon color="primary" />
             </IconButton>
           ) : (
-            <div style={{ display: "flex", gap: "16px" }}>
+            <DesktopNavContainer role="navigation" aria-label="main navigation">
               {navbarItems.map((item) => (
                 <NavButton
                   key={item.label}
                   color="inherit"
                   disableRipple
                   onClick={() => handleMenuClick(item.href)}
+                  aria-label={`Navigate to ${item.label} section`}
                 >
                   {item.label}
                 </NavButton>
               ))}
-            </div>
+            </DesktopNavContainer>
           )}
         </StyledToolbar>
       </StyledAppBar>
 
-      <Drawer
-        variant="temporary"
-        anchor="right"
-        open={mobileOpen}
-        onClose={handleDrawerToggle}
-        ModalProps={{
-          keepMounted: true,
-        }}
-        sx={{
-          display: { xs: "block", md: "none" },
-          "& .MuiDrawer-paper": { boxSizing: "border-box", padding: "16px" },
-        }}
-      >
-        {drawer}
-      </Drawer>
+      <MobileNavDrawer open={mobileOpen} onClose={handleDrawerToggle} />
     </>
   );
 };
 
-export default Header;
+export default Navbar;

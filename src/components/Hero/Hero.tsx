@@ -1,31 +1,29 @@
-import React from 'react';
-import { Typography, Button, Container, Box } from '@mui/material';
-import { ArrowDownward, Work, Email } from '@mui/icons-material';
-import { motion } from 'framer-motion';
+import { ArrowDownward } from "@mui/icons-material";
+import { Container, Typography } from "@mui/material";
+import { motion } from "framer-motion";
+import { JumpingTonsLetters } from "../JumpingLetters";
 import {
-  HeroSection,
   HeroContent,
-  HeroTitle,
-  HeroSubtitle,
   HeroDescription,
-  CTAButton,
+  HeroSection,
+  HeroTitle,
   ScrollIndicator,
-} from './styled';
+} from "./styled";
 
 const Hero = () => {
   const handleScrollToWork = () => {
-    const element = document.querySelector('#work');
+    const element = document.querySelector("#work");
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
-  const handleScrollToContact = () => {
-    const element = document.querySelector('#contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  // const handleScrollToContact = () => {
+  //   const element = document.querySelector("#contact");
+  //   if (element) {
+  //     element.scrollIntoView({ behavior: "smooth" });
+  //   }
+  // };
 
   return (
     <HeroSection id="home">
@@ -36,11 +34,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <HeroTitle variant="h1">
-              Frontend Software
-              <br />
-              <span style={{ color: '#1976d2' }}>Developer</span>
-            </HeroTitle>
+            <HeroTitle variant="h1">{/* Gutu Galuppo */}</HeroTitle>
           </motion.div>
 
           <motion.div
@@ -48,9 +42,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <HeroSubtitle variant="h4">
-              From audio to frontend engineering
-            </HeroSubtitle>
+            <JumpingTonsLetters />
           </motion.div>
 
           <motion.div
@@ -59,34 +51,9 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <HeroDescription variant="h6">
-              I turn design into code, prioritizing clean architecture, smooth UX, 
-              elegant solutions, and reusable components.
+              I turn design into code, prioritizing clean architecture, smooth
+              UX, elegant solutions, and reusable components.
             </HeroDescription>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <Box sx={{ display: 'flex', gap: 3, flexWrap: 'wrap', justifyContent: 'center' }}>
-              <CTAButton
-                variant="contained"
-                size="large"
-                startIcon={<Work />}
-                onClick={handleScrollToWork}
-              >
-                View My Work
-              </CTAButton>
-              <CTAButton
-                variant="outlined"
-                size="large"
-                startIcon={<Email />}
-                onClick={handleScrollToContact}
-              >
-                Get In Touch
-              </CTAButton>
-            </Box>
           </motion.div>
 
           <motion.div
@@ -106,4 +73,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
