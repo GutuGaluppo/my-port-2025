@@ -3,7 +3,7 @@ import { styled } from "@mui/material/styles";
 
 export const MusicSection = styled(Box)(({ theme }) => ({
   padding: "100px 0",
-  backgroundColor: theme.palette.background.paper,
+  // backgroundColor: theme.palette.background.paper,
   position: "relative",
   "&::before": {
     content: '""',

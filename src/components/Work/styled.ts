@@ -3,7 +3,7 @@ import { styled } from "@mui/material/styles";
 
 export const WorkSection = styled(Box)(({ theme }) => ({
   padding: "100px 0",
-  backgroundColor: theme.palette.grey[50],
+  // backgroundColor: theme.palette.grey[50],
 }));
 
 export const SectionTitle = styled(Typography)(({ theme }) => ({

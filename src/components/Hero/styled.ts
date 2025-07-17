@@ -1,27 +1,37 @@
 import { Box, Button, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import { keyframes } from "@emotion/react";
 
-export const HeroSection = styled(Box)(({ theme }) => ({
+const pulse = keyframes`
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(1);
+  }
+`;
+
+export const HeroSection = styled(Box)({
   minHeight: "100vh",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  background: `linear-gradient(135deg,
-    rgb(18,20,25) 0%,
-    rgb(18,25,35) 100%)`,
   position: "relative",
   overflow: "hidden",
-  "&::before": {
-    content: '""',
-    position: "absolute",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    background: `radial-gradient(circle at 20% 80%, ${theme.palette.info.dark}10 0%, transparent 50%),
-                 radial-gradient(circle at 80% 20%, ${theme.palette.primary.main}10 0%, transparent 50%)`,
-    zIndex: 0,
-  },
+});
+
+export const TopLight = styled(Box)(({ theme }) => ({
+  position: "absolute",
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+  background: `radial-gradient(circle at 90% 30%, ${theme.palette.info.dark}40 0%, transparent 60%)`,
+  animation: `${pulse} 10s infinite ease-in-out`,
+  zIndex: 0,
 }));
 
 export const HeroContent = styled(Box)({
@@ -56,9 +66,8 @@ export const HeroSubtitle = styled(Typography)(({ theme }) => ({
 
 export const HeroDescription = styled(Typography)(({ theme }) => ({
   fontWeight: 400,
-  fontSize: "clamp(1rem, 2vw, 1.2rem)",
+  fontSize: "clamp(2rem, 4vw, 1.2rem)",
   color: theme.palette.common.white,
-  maxWidth: "700px",
   margin: "0 auto",
   marginBottom: theme.spacing(5),
   lineHeight: 1.6,
@@ -95,7 +104,7 @@ export const CTAButton = styled(Button)(({ theme }) => ({
 
 export const ScrollIndicator = styled(Box)(({ theme }) => ({
   position: "absolute",
-  bottom: "40px",
+  bottom: "20px",
   left: "50%",
   transform: "translateX(-50%)",
   display: "flex",
@@ -105,8 +114,8 @@ export const ScrollIndicator = styled(Box)(({ theme }) => ({
   color: theme.palette.text.secondary,
   transition: "all 0.3s ease",
   "&:hover": {
-    color: theme.palette.primary.main,
-    transform: "translateX(-50%) translateY(-5px)",
+    color: theme.palette.common.white,
+    // transform: "translateX(-50%) translateY(-5px)",
   },
   "& .MuiSvgIcon-root": {
     fontSize: "2rem",

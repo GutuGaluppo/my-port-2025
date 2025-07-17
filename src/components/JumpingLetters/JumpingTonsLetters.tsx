@@ -37,10 +37,6 @@ const JumpingTonsLetters = (): React.ReactElement => {
       letter.addEventListener("mouseenter", () => {
         letter.classList.add("isJumping");
 
-        // const newColorValueR = avoColorList[index][0];
-        // const newColorValueG = avoColorList[index][1];
-        // const newColorValueB = avoColorList[index][2];
-
         setColor(letter, 225, 204, 143);
 
         setTimeout(() => {
@@ -53,8 +49,8 @@ const JumpingTonsLetters = (): React.ReactElement => {
       });
     });
   }
-  const line1 = `Music Coding`;
-  const line2 = "Bike Tattoo";
+  const line1 = "Music • Coding";
+  const line2 = "Bike • Tattoo";
   const line3 = "Family & Friends";
 
   return (

@@ -1,4 +1,4 @@
-import { CssBaseline, ThemeProvider } from "@mui/material";
+import { Box, CssBaseline, ThemeProvider } from "@mui/material";
 import "./App.css";
 import {
   About,
@@ -16,7 +16,11 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <div className="App">
+      <Box
+        sx={{
+          background: `linear-gradient(135deg, rgb(18,20,25) 0%, rgb(18,25,35) 100%)`,
+        }}
+      >
         <Navbar />
         <Hero />
         <About />
@@ -25,7 +29,7 @@ function App() {
         <Experience />
         <Contact />
         <Footer />
-      </div>
+      </Box>
     </ThemeProvider>
   );
 }

@@ -22,30 +22,30 @@ const playToneForChar = async (char: string) => {
     c: "E3",
     d: "F3",
     e: "G3",
-    f: "A3",
-    g: "B3",
-    h: "C4",
-    i: "D4",
-    j: "E4",
-    k: "F4",
-    l: "G4",
-    m: "A4",
-    n: "B4",
-    o: "C3",
-    p: "D3",
-    q: "E3",
-    r: "F3",
+    // f: "A3",
+    // g: "B3",
+    // h: "C4",
+    i: "D3",
+    // j: "E4",
+    // k: "F4",
+    // l: "G4",
+    m: "A3",
+    // n: "B4",
+    // o: "C3",
+    // p: "D3",
+    // q: "E3",
+    // r: "F3",
     s: "G3",
-    t: "A3",
-    u: "B3",
-    v: "C5",
-    w: "D5",
-    x: "E5",
-    y: "F5",
-    z: "G5",
+    // t: "A3",
+    u: "E3",
+    // v: "C5",
+    // w: "D5",
+    // x: "E5",
+    // y: "F5",
+    // z: "G5",
   };
 
-  const note = charToNote[char.toLowerCase()] || "C4"; // Default to C4 if character not found
+  const note = charToNote[char.toLowerCase()] || "C3"; // Default to C3 if character not found
   synth.triggerAttackRelease(note, "8n");
 };
 
@@ -63,7 +63,7 @@ export const stringToLetterDivs = (text: string): React.ReactElement[] => {
         key={index}
         className="letter"
         {...(shouldHaveTitle && { "data-title": char })}
-        onMouseEnter={() => playToneForChar(char)}
+        // onMouseEnter={() => playToneForChar(char)}
         style={{ cursor: "pointer" }}
       >
         {displayChar}

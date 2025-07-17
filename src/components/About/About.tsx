@@ -1,4 +1,11 @@
-import { Avatar, Box, Container, Grid, Typography } from "@mui/material";
+import {
+  Avatar,
+  Box,
+  Container,
+  Divider,
+  Grid,
+  Typography,
+} from "@mui/material";
 import { motion } from "framer-motion";
 import {
   AboutContent,
@@ -11,8 +18,9 @@ import {
   StatLabel,
   StatNumber,
   StatsContainer,
+  VerticalText,
 } from "./styled";
-import { languages, skills, stats } from "../../data/aboutData";
+import picture from "../../assets/gutu_pic.png";
 
 const About = () => {
   return (
@@ -25,29 +33,87 @@ const About = () => {
           viewport={{ once: true }}
         >
           <SectionTitle variant="h2" align="center">
-            About Me
+            Hi, I'm Gutu Galuppo!
+            <br />
+            Sound Designer &
+            <br />
+            Software Engineer
           </SectionTitle>
         </motion.div>
 
         <Grid container spacing={6} alignItems="center">
-          <Grid item xs={12} md={6}>
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <AboutContent>
-                <AboutText variant="body1" paragraph>
-                  After years of working as a Sound Designer, I encountered the
-                  captivating world of software engineering and discovered a
-                  profound passion for programming. Today, I am a Frontend
-                  Software Developer, transforming simple mock-ups into
-                  semantic, responsive, reusable, scalable, and high-performing
-                  applications.
+          {/* <Grid item xs={12} md={6}> */}
+          <VerticalText>A SMALL SUMMARY ABOUT ME</VerticalText>
+
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            style={{ width: "100%" }}
+          >
+            <AboutContent>
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                viewport={{ once: true }}
+              >
+                <Box sx={{ textAlign: "center", mb: 4 }}>
+                  <Box
+                    sx={{
+                      position: "relative",
+                      width: 250,
+                      height: 250,
+                      margin: "80px",
+                      borderRadius: "5%",
+                      backgroundImage: `url(${picture})`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      backgroundRepeat: "no-repeat",
+                      zIndex: 2,
+                      "&::before": {
+                        content: '""',
+                        position: "absolute",
+                        top: -50,
+                        left: -50,
+                        width: "300px",
+                        height: "300px",
+                        border: "2px solid",
+                        borderRadius: "5%",
+                        zIndex: 1,
+                      },
+                    }}
+                    // src="/api/placeholder/200/200"
+                    // alt="Augusto Galuppo"
+                  />
+                </Box>
+              </motion.div>
+              <Box
+                sx={{
+                  maxWidth: "700px",
+                  color: "primary.contrastText",
+                  textAlign: "right",
+                  // textAlign: "justify",
+                }}
+              >
+                <AboutText>
+                  After years of working as a{" "}
+                  <a
+                    href="https://soundcloud.com/gutu_galuppo"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Sound Designer
+                  </a>
+                  , I encountered the captivating world of software engineering
+                  and discovered a profound passion for programming. Today, I am
+                  a Frontend Software Developer, transforming simple mock-ups
+                  into semantic, responsive, reusable, scalable, and
+                  high-performing applications.
                 </AboutText>
 
-                <AboutText variant="body1" paragraph>
+                <AboutText>
                   With a strong emphasis on code quality and exceptional user
                   experiences, I am driven by curiosity and continually learning
                   new technologies and refining my skills. My unique background
@@ -55,83 +121,62 @@ const About = () => {
                   frontend development, focusing on harmony, rhythm, and user
                   experience flow.
                 </AboutText>
-
-                <Box sx={{ mt: 4 }}>
-                  <Typography variant="h6" gutterBottom>
-                    Languages
-                  </Typography>
-                  {languages.map((lang, index) => (
-                    <Box
-                      key={index}
-                      sx={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        mb: 1,
-                      }}
-                    >
-                      <Typography variant="body2">{lang.name}</Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        {lang.level}
-                      </Typography>
-                    </Box>
-                  ))}
-                </Box>
-              </AboutContent>
-            </motion.div>
-          </Grid>
-
-          <Grid item xs={12} md={6}>
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              viewport={{ once: true }}
-            >
-              <Box sx={{ textAlign: "center", mb: 4 }}>
-                <Avatar
-                  sx={{
-                    width: 200,
-                    height: 200,
-                    margin: "0 auto",
-                    mb: 3,
-                    border: "4px solid",
-                    borderColor: "primary.main",
-                  }}
-                  src="/api/placeholder/200/200"
-                  alt="Augusto Galuppo"
-                />
               </Box>
+            </AboutContent>
+          </motion.div>
+          {/* </Grid> */}
 
-              <SkillsContainer>
-                <Typography variant="h6" gutterBottom align="center">
-                  Technical Skills
-                </Typography>
-                <Box
-                  sx={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    gap: 1,
-                    justifyContent: "center",
-                  }}
-                >
-                  {skills.map((skill, index) => (
-                    <motion.div
-                      key={skill}
-                      initial={{ opacity: 0, scale: 0 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                    >
-                      <SkillChip label={skill} />
-                    </motion.div>
-                  ))}
-                </Box>
-              </SkillsContainer>
-            </motion.div>
-          </Grid>
+          {/* <Grid item xs={12} md={6}> */}
+          {/* <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <Box sx={{ textAlign: "center", mb: 4 }}>
+              <Avatar
+                sx={{
+                  width: 200,
+                  height: 200,
+                  margin: "0 auto",
+                  mb: 3,
+                  border: "4px solid",
+                  borderColor: "primary.main",
+                }}
+                src="/api/placeholder/200/200"
+                alt="Augusto Galuppo"
+              />
+            </Box>
+
+            <SkillsContainer>
+              <Typography variant="h6" gutterBottom align="center">
+                Technical Skills
+              </Typography>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  gap: 1,
+                  justifyContent: "center",
+                }}
+              >
+                {skills.map((skill, index) => (
+                  <motion.div
+                    key={skill}
+                    initial={{ opacity: 0, scale: 0 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                  >
+                    <SkillChip label={skill} />
+                  </motion.div>
+                ))}
+              </Box>
+            </SkillsContainer>
+          </motion.div> */}
         </Grid>
 
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
@@ -149,7 +194,7 @@ const About = () => {
               ))}
             </Grid>
           </StatsContainer>
-        </motion.div>
+        </motion.div> */}
       </Container>
     </AboutSection>
   );

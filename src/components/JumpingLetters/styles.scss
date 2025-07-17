@@ -34,10 +34,11 @@ a:hover {
 .inner {
     display: table;
     margin: 40px auto;
+    text-align: left;
 }
 
 .letter {
-    font-size: clamp(34px, 7vw, 145px);
+    font-size: clamp(34px, 8vw, 145px);
     font-family: "Georgia";
     font-style: italic;
     font-weight: 700;
