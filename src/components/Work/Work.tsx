@@ -1,28 +1,7 @@
-import { Code, Launch } from "@mui/icons-material";
-import {
-  Box,
-  Button,
-  Chip,
-  Container,
-  Grid,
-  Tab,
-  Tabs,
-  Typography,
-} from "@mui/material";
+import { Container, Tab, Tabs, Typography } from "@mui/material";
 import { motion } from "framer-motion";
-import { useState } from "react";
-import {
-  FilterTabs,
-  ProjectActions,
-  ProjectCard,
-  ProjectContent,
-  ProjectDescription,
-  ProjectImage,
-  ProjectTitle,
-  SectionTitle,
-  TechStack,
-  WorkSection,
-} from "./styled";
+import { type SyntheticEvent, useState } from "react";
+import { FilterTabs, SectionTitle, WorkSection } from "./styled";
 
 const Work = () => {
   const [filter, setFilter] = useState("all");
@@ -113,8 +92,13 @@ const Work = () => {
     filter === "all"
       ? projects
       : projects.filter((project) => project.category === filter);
+  const previewProject = filteredProjects[0] ?? projects[0];
 
-  const handleFilterChange = (event, newValue) => {
+  const handleFilterChange = (
+    event: SyntheticEvent,
+    newValue: string,
+  ) => {
+    event.preventDefault();
     setFilter(newValue);
   };
 
@@ -128,7 +112,7 @@ const Work = () => {
           viewport={{ once: true }}
         >
           <SectionTitle variant="h2" align="center">
-            My Work
+            Playing with Code
           </SectionTitle>
           <Typography
             variant="h6"
@@ -165,7 +149,28 @@ const Work = () => {
           </FilterTabs>
         </motion.div>
 
-        <Grid container spacing={4} sx={{ mt: 4 }}>
+        <iframe
+          src="https://codesandbox.io/embed/gl9sdj?view=preview"
+          style={{
+            width: "100%",
+            height: "500px",
+            border: 0,
+            borderRadius: "4px",
+            overflow: "hidden",
+          }}
+          title={previewProject.title}
+          allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+          sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+        ></iframe>
+
+        {/* <iframe src="https://codesandbox.io/embed/gl9sdj?view=preview"
+             style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
+             title="multi-step-form-frontend-mentor"
+             allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+             sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+           ></iframe> */}
+
+        {/* <Grid container spacing={4} sx={{ mt: 4 }}>
           {filteredProjects.map((project, index) => (
             <Grid item xs={12} md={6} lg={4} key={project.id}>
               <motion.div
@@ -256,7 +261,7 @@ const Work = () => {
               </motion.div>
             </Grid>
           ))}
-        </Grid>
+        </Grid> */}
       </Container>
     </WorkSection>
   );

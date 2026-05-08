@@ -1,15 +1,6 @@
 import { Box, CssBaseline, ThemeProvider } from "@mui/material";
 import "./App.css";
-import {
-  About,
-  Contact,
-  Experience,
-  Footer,
-  Navbar,
-  Hero,
-  Music,
-  Work,
-} from "./components";
+import { About, Contact, Experience, Footer, Hero, Navbar } from "./components";
 import { theme } from "./theme";
 
 function App() {
@@ -24,8 +15,8 @@ function App() {
         <Navbar />
         <Hero />
         <About />
-        <Work />
-        <Music />
+        {/* <Work /> */}
+        {/* <Music /> */}
         <Experience />
         <Contact />
         <Footer />

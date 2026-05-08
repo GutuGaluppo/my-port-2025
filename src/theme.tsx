@@ -7,6 +7,11 @@ export const theme = createTheme({
       "Roboto",
       '"Helvetica Neue"',
       "Arial",
+      "Cherish",
+      "Imperial Script",
+      "Instrument Serif",
+      "cursive",
+      "Bebas Neue",
       "sans-serif",
     ].join(","),
     h1: {

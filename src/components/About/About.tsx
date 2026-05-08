@@ -1,23 +1,10 @@
-import {
-  Avatar,
-  Box,
-  Container,
-  Divider,
-  Grid,
-  Typography,
-} from "@mui/material";
+import { Box, Container, Grid } from "@mui/material";
 import { motion } from "framer-motion";
 import {
   AboutContent,
   AboutSection,
   AboutText,
   SectionTitle,
-  SkillChip,
-  SkillsContainer,
-  StatItem,
-  StatLabel,
-  StatNumber,
-  StatsContainer,
   VerticalText,
 } from "./styled";
 import picture from "../../assets/gutu_pic.png";
@@ -32,12 +19,31 @@ const About = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <SectionTitle variant="h2" align="center">
-            Hi, I'm Gutu Galuppo!
+          <SectionTitle variant="h1" align="left">
+            <span
+              style={{
+                fontFamily: "Instrument Serif",
+                fontWeight: 100,
+                fontSize: "4rem",
+              }}
+            >
+              Hi, I'm
+            </span>
             <br />
-            Sound Designer &
+            Gutu Galuppo!
             <br />
-            Software Engineer
+            Software Developer
+            {/* <br />
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1 }}
+              viewport={{ once: true }}
+              style={{ fontFamily: "inherit" }}
+            >
+              <span style={{ fontFamily: "Imperial Script" }}>&</span>
+              Sound Designer{" "}
+            </motion.div> */}
           </SectionTitle>
         </motion.div>
 
@@ -94,7 +100,6 @@ const About = () => {
                   maxWidth: "700px",
                   color: "primary.contrastText",
                   textAlign: "right",
-                  // textAlign: "justify",
                 }}
               >
                 <AboutText>
@@ -103,6 +108,7 @@ const About = () => {
                     href="https://soundcloud.com/gutu_galuppo"
                     target="_blank"
                     rel="noopener noreferrer"
+                    style={{ fontFamily: "inherit" }}
                   >
                     Sound Designer
                   </a>

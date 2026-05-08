@@ -38,7 +38,7 @@ const Navbar = () => {
     <>
       <StyledAppBar>
         <StyledToolbar>
-          <Logo variant="h6">G</Logo>
+          <Logo variant="h6">Gutu Galuppo</Logo>
 
           {isMobile ? (
             <IconButton

@@ -14,8 +14,9 @@ export const AboutContent = styled(Box)(({ theme }) => ({
 }));
 
 export const SectionTitle = styled(Typography)(({ theme }) => ({
-  fontWeight: 700,
-  fontSize: "clamp(2rem, 5vw, 3rem)",
+  fontFamily: "Bebas Neue",
+  fontWeight: 500,
+  fontSize: "clamp(4rem, 7vw, 7rem)",
   marginBottom: theme.spacing(6),
   color: `${theme.palette.common.white}50`,
   position: "relative",
@@ -46,8 +47,9 @@ export const VerticalText = styled(Typography)({
 });
 
 export const AboutText = styled(Typography)(({ theme }) => ({
-  fontSize: "clamp(1.4rem, 1.4vw, 2rem)",
-  lineHeight: 1.7,
+  fontFamily: "Bebas Neue",
+  fontSize: "clamp(1.6rem, 1.7vw, 2rem)",
+  lineHeight: 1.5,
   color: theme.palette.text.secondary,
   marginBottom: theme.spacing(2),
 }));

@@ -1,16 +1,16 @@
 import { Box, Card, CardContent, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
-export const WorkSection = styled(Box)(({ theme }) => ({
+export const WorkSection = styled(Box)({
   padding: "100px 0",
-  // backgroundColor: theme.palette.grey[50],
-}));
+});
 
 export const SectionTitle = styled(Typography)(({ theme }) => ({
-  fontWeight: 700,
-  fontSize: "clamp(2rem, 5vw, 3rem)",
+  fontFamily: "Bebas Neue",
+  // fontWeight: 500,
+  fontSize: "clamp(3rem, 5vw, 4rem)",
   marginBottom: theme.spacing(2),
-  color: theme.palette.text.primary,
+  color: "white",
   position: "relative",
   "&::after": {
     content: '""',

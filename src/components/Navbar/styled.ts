@@ -30,6 +30,7 @@ export const Logo = styled(Typography)(({ theme }) => ({
 
 export const NavButton = styled(Button)(({ theme }) => ({
   color: theme.palette.common.white,
+  fontFamily: "Bebas Neue",
   fontWeight: 700,
   fontSize: "1.3rem",
   textTransform: "none",
