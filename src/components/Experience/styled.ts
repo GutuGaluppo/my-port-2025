@@ -1,16 +1,19 @@
 import { Box, Card, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
-export const ExperienceSection = styled(Box)(({ theme }) => ({
+type CurrentProp = {
+  current?: boolean;
+};
+
+export const ExperienceSection = styled(Box)({
   padding: "100px 0",
-  backgroundColor: theme.palette.grey[50],
-}));
+});
 
 export const SectionTitle = styled(Typography)(({ theme }) => ({
   fontWeight: 700,
   fontSize: "clamp(2rem, 5vw, 3rem)",
   marginBottom: theme.spacing(2),
-  color: theme.palette.text.primary,
+  color: theme.palette.common.white,
   position: "relative",
   "&::after": {
     content: '""',
@@ -27,7 +30,7 @@ export const SectionTitle = styled(Typography)(({ theme }) => ({
 
 export const TimelineContainer = styled(Box)(({ theme }) => ({
   position: "relative",
-  maxWidth: "800px",
+  maxWidth: "70vw",
   margin: "0 auto",
   "&::before": {
     content: '""',
@@ -36,7 +39,8 @@ export const TimelineContainer = styled(Box)(({ theme }) => ({
     top: 0,
     bottom: 0,
     width: "2px",
-    backgroundColor: theme.palette.grey[300],
+    backgroundColor: "#e1cc8f",
+    // backgroundColor: theme.palette.grey[300],
     transform: "translateX(-50%)",
     [theme.breakpoints.down("md")]: {
       left: "20px",
@@ -46,23 +50,23 @@ export const TimelineContainer = styled(Box)(({ theme }) => ({
 
 export const TimelineItem = styled(Box)(({ theme }) => ({
   position: "relative",
-  marginBottom: theme.spacing(6),
+  marginTop: theme.spacing(4),
   "&:last-child": {
     marginBottom: 0,
   },
 }));
 
-export const TimelineConnector = styled(Box)(({ theme, current }) => ({
+export const TimelineConnector = styled(Box, {
+  shouldForwardProp: (prop) => prop !== "current",
+})<CurrentProp>(({ theme, current }) => ({
   position: "absolute",
   left: "50%",
   top: "20px",
   width: "20px",
   height: "20px",
   borderRadius: "50%",
-  backgroundColor: current
-    ? theme.palette.primary.main
-    : theme.palette.grey[400],
-  border: `4px solid ${theme.palette.background.paper}`,
+  backgroundColor: current ? "#e1cc8f" : theme.palette.grey[400],
+  border: `4px solid #e1cc8f`,
   transform: "translateX(-50%)",
   zIndex: 2,
   [theme.breakpoints.down("md")]: {
@@ -92,10 +96,12 @@ export const TimelineContent = styled(Box)(({ theme }) => ({
   },
 }));
 
-export const CompanyCard = styled(Card)(({ theme, current }) => ({
+export const CompanyCard = styled(Card, {
+  shouldForwardProp: (prop) => prop !== "current",
+})<CurrentProp>(({ theme, current }) => ({
   borderRadius: "16px",
   border: current
-    ? `2px solid ${theme.palette.primary.main}`
+    ? `2px solid #e1cc8f`
     : `1px solid ${theme.palette.grey[200]}`,
   transition: "all 0.3s ease",
   "&:hover": {
@@ -114,12 +120,16 @@ export const CompanyHeader = styled(Box)({
 });
 
 export const CompanyName = styled(Typography)(({ theme }) => ({
+  fontFamily: "Bebas Neue",
   fontWeight: 700,
   color: theme.palette.text.primary,
   marginBottom: theme.spacing(0.5),
 }));
 
-export const JobTitle = styled(Typography)(({ theme, current }) => ({
+export const JobTitle = styled(Typography, {
+  shouldForwardProp: (prop) => prop !== "current",
+})<CurrentProp>(({ theme, current }) => ({
+  fontFamily: "Instrument Serif",
   fontWeight: 600,
   color: current ? theme.palette.primary.main : theme.palette.text.secondary,
 }));
