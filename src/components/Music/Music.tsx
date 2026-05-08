@@ -1,5 +1,4 @@
-import React from 'react';
-import { Container, Typography, Grid, Box, Card, CardContent } from '@mui/material';
+import { Container, Typography, Grid, Box, CardContent } from '@mui/material';
 import { PlayArrow, MusicNote, Headphones } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import {
@@ -51,7 +50,7 @@ const Music = () => {
 
         <Grid container spacing={4} sx={{ mb: 6 }}>
           {musicHighlights.map((item, index) => (
-            <Grid item xs={12} md={4} key={index}>
+            <Grid key={index} size={{ xs: 12, md: 4 }}>
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -135,4 +134,3 @@ const Music = () => {
 };
 
 export default Music;
-

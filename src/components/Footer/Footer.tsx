@@ -1,4 +1,3 @@
-import React from 'react';
 import { Container, Typography, Box, IconButton, Divider } from '@mui/material';
 import { LinkedIn, GitHub, Email, MusicNote } from '@mui/icons-material';
 import {
@@ -87,4 +86,3 @@ const Footer = () => {
 };
 
 export default Footer;
-

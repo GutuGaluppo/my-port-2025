@@ -11,8 +11,8 @@ import {
 } from "./styled";
 
 const Hero = () => {
-  const handleScrollToWork = () => {
-    const element = document.querySelector("#work");
+  const handleScrollToAbout = () => {
+    const element = document.querySelector("#about");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
@@ -45,7 +45,7 @@ const Hero = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1 }}
         >
-          <ScrollIndicator onClick={handleScrollToWork}>
+          <ScrollIndicator onClick={handleScrollToAbout}>
             <ArrowDownward />
             <Typography variant="caption">Scroll to explore</Typography>
           </ScrollIndicator>

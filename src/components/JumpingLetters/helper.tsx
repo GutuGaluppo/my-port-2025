@@ -1,4 +1,4 @@
-import React from "react";
+import type { ReactElement } from "react";
 import * as Tone from "tone";
 
 // Initialize audio context (call this once in your app)
@@ -50,7 +50,7 @@ const playToneForChar = async (char: string) => {
 };
 
 // Function to convert a string into letter divs with data-title attributes
-export const stringToLetterDivs = (text: string): React.ReactElement[] => {
+export const stringToLetterDivs = (text: string): ReactElement[] => {
   return text.split("").map((char, index) => {
     // Handle special characters that shouldn't have data-title
     const shouldHaveTitle = char !== "," && char !== " ";
@@ -63,7 +63,9 @@ export const stringToLetterDivs = (text: string): React.ReactElement[] => {
         key={index}
         className="letter"
         {...(shouldHaveTitle && { "data-title": char })}
-        // onMouseEnter={() => playToneForChar(char)}
+        onMouseEnter={
+          shouldHaveTitle ? () => void playToneForChar(char) : undefined
+        }
         style={{ cursor: "pointer" }}
       >
         {displayChar}
